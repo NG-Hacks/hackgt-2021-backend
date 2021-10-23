@@ -13,17 +13,14 @@ type GeoLocation struct {
 	altitude  float32
 }
 
-func connectDB() (*gorm.DB, err){
-	dsn := "host=localhost user=gorm password=gorm dbname=gorm port=9920 sslmode=disable TimeZone=Asia/Shanghai"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	if err != nil {
-		return nil, err
-	}
-	return db, nil
+func connectDB() (*gorm.DB, error) {
+	db, err := gorm.Open(postgres.New(postgres.Config{
+		DriverName: "cloudsqlpostgres",
+		DSN: "host=project:region:instance user=postgres dbname=postgres password=password sslmode=disable",
+	  })
+
 }
 
-func addGeoLocation(db *gorm.DB,  _userId int,  _lattitude float32,  _longitude float32, _altitude float32 {
-	db.Create(&GeoLocation{userId: _userId, lattitude: _lattitude, longitude: _longitude, altitude: _altitude})
-}
-
-
+// func addGeoLocation(db *gorm.DB,  _userId int,  _lattitude float32,  _longitude float32, _altitude float32 {
+// 	db.Create(&GeoLocation{userId: _userId, lattitude: _lattitude, longitude: _longitude, altitude: _altitude})
+// }
