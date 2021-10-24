@@ -17,6 +17,8 @@ github.com/go-logfmt/logfmt v0.5.0/go.mod h1:wCYkCAKZfumFQihp8CzCvQ3paCTfi41vtzG
 github.com/go-stack/stack v1.8.0/go.mod h1:v0f6uXyyMGvRgIKkXu+yp6POWl0qKG85gN/melR3HDY=
 github.com/gofiber/fiber v1.14.6 h1:QRUPvPmr8ijQuGo1MgupHBn8E+wW0IKqiOvIZPtV70o=
 github.com/gofiber/fiber v1.14.6/go.mod h1:Yw2ekF1YDPreO9V6TMYjynu94xRxZBdaa8X5HhHsjCM=
+github.com/gofiber/fiber/v2 v2.20.2 h1:dqizbjO1pCmH6K+b+kBk7TCJK4rmgjJXvX8/MZDbK60=
+github.com/gofiber/fiber/v2 v2.20.2/go.mod h1:/LdZHMUXZvTTo7gU4+b1hclqCAdoQphNQ9bi9gutPyI=
 github.com/gofiber/utils v0.0.10 h1:3Mr7X7JdCUo7CWf/i5sajSaDmArEDtti8bM1JUVso2U=
 github.com/gofiber/utils v0.0.10/go.mod h1:9J5aHFUIjq0XfknT4+hdSMG6/jzfaAgCu4HEbWDeBlo=
 github.com/gofrs/uuid v4.0.0+incompatible h1:1SD/1F5pU8p29ybwgQSwpQk+mwdRrXCYuPhW6m+TnJw=
