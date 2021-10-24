@@ -3,7 +3,6 @@ module github.com/ngngardner/hackgt-2021-backend
 go 1.17
 
 require (
-	github.com/gofiber/fiber v1.14.6
 	github.com/gofiber/fiber/v2 v2.20.2
 	gorm.io/driver/postgres v1.1.2
 	gorm.io/gorm v1.21.16
@@ -11,8 +10,6 @@ require (
 
 require (
 	github.com/andybalholm/brotli v1.0.2 // indirect
-	github.com/gofiber/utils v0.0.10 // indirect
-	github.com/gorilla/schema v1.1.0 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
 	github.com/jackc/pgconn v1.10.0 // indirect
 	github.com/jackc/pgio v1.0.0 // indirect
@@ -25,8 +22,6 @@ require (
 	github.com/jinzhu/now v1.1.2 // indirect
 	github.com/klauspost/compress v1.13.4 // indirect
 	github.com/lib/pq v1.10.3 // indirect
-	github.com/mattn/go-colorable v0.1.7 // indirect
-	github.com/mattn/go-isatty v0.0.12 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.29.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect

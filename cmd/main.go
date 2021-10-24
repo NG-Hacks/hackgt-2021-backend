@@ -18,6 +18,9 @@ func main() {
 
 	// fiber
 	app := fiber.New()
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Hello World")
+	})
 	app.Get("/user/:id", handlers.GetUser)
-	app.Listen(":8080")
+	app.Listen(":9001")
 }
