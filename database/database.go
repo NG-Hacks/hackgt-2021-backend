@@ -10,11 +10,10 @@ type User struct {
 	Latitude  float32
 	Longitude float32
 	Altitude  float32
+	IsSharing bool
 }
 
 func ConnectDB() (*gorm.DB, error) {
-	// host=hackgt-329917:us-central1:compass port=5432 user=postgres dbname=compass password=abc123 sslmode=disable
-	//db, err := gorm.Open("postgres", "host=hackgt-329917:us-central1:compass port=5432 user=postgres dbname=compass password=abc123 sslmode=disable")
 	dsn := "host=35.192.7.243 port=5432 user=postgres dbname=compass password=abc123 sslmode=disable"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
@@ -24,7 +23,34 @@ func ConnectDB() (*gorm.DB, error) {
 	return db, nil
 }
 
-func AddGeoLocation(db *gorm.DB, _latitude float32, _longitude float32, _altitude float32) *gorm.DB {
-	result := db.Create(&User{Latitude: _latitude, Longitude: _longitude, Altitude: _altitude})
+func CreateUser(db *gorm.DB, user User) *gorm.DB {
+	// Create user
+	result := db.Create(&user)
 	return result
+}
+
+func ReadUser(db *gorm.DB, id int) {
+	// Read user from db
+	db.First(&User{}, "id = ?", id)
+}
+
+func SetIsSharing(db *gorm.DB, user User, _isSharing bool) {
+	// choose if user wants to share location
+	db.Model(&User{}).Where("id = ?", user.ID).Updates(User{IsSharing: _isSharing})
+
+}
+
+func UpdateGPScoordinates(db *gorm.DB, _latitude float32, _longitude float32, user User) {
+	db.Model(&User{}).Where("id = ?", user.ID).Updates(User{Latitude: _latitude, Longitude: _longitude})
+
+}
+
+func UpdateAltitude(db *gorm.DB, _altitude float32, _longitude float32, user User) {
+	db.Model(&User{}).Where("id = ?", user.ID).Updates(User{Altitude: _altitude})
+
+}
+
+func UpdateUser(db *gorm.DB, user User) {
+	// update user
+	db.Save(&user)
 }

@@ -3,17 +3,17 @@ package main
 import (
 	"fmt"
 
+	"github.com/gofiber/fiber"
 	"github.com/ngngardner/hackgt-2021-backend/database"
 )
 
 func main() {
+	app := fiber.New()
 	db, err := database.ConnectDB()
 	if err != nil {
 		fmt.Println("Cannot connect to db")
 	}
 	db.AutoMigrate(&database.User{})
 
-	//latitude := pgtype.Float8.Float(22.1)
-	result := database.AddGeoLocation(db, 22.1, 10.2, 100.1)
-	fmt.Println(result)
+	app.Listen(":8080")
 }
