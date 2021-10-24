@@ -14,6 +14,6 @@ func main() {
 	db.AutoMigrate(&database.User{})
 
 	//latitude := pgtype.Float8.Float(22.1)
-	result := database.AddGeoLocation(db, 22, 10, 100)
+	result := database.AddGeoLocation(db, 22.1, 10.2, 100.1)
 	fmt.Println(result)
 }

@@ -7,15 +7,14 @@ import (
 
 type User struct {
 	gorm.Model
-	latitude  int64
-	longitude int64
-	altitude  int64
+	Latitude  float32
+	Longitude float32
+	Altitude  float32
 }
 
 func ConnectDB() (*gorm.DB, error) {
 	// host=hackgt-329917:us-central1:compass port=5432 user=postgres dbname=compass password=abc123 sslmode=disable
 	//db, err := gorm.Open("postgres", "host=hackgt-329917:us-central1:compass port=5432 user=postgres dbname=compass password=abc123 sslmode=disable")
-
 	dsn := "host=35.192.7.243 port=5432 user=postgres dbname=compass password=abc123 sslmode=disable"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
@@ -25,10 +24,7 @@ func ConnectDB() (*gorm.DB, error) {
 	return db, nil
 }
 
-func AddGeoLocation(db *gorm.DB, _latitude int64, _longitude int64, _altitude int64) *gorm.DB {
-
-	// user := User{Name: "Jinzhu", Age: 18, Birthday: time.Now()}
-	// result := db.Create(&user) // pass pointer of data to Create
-	result := db.Select("latitude", "longitude", "altitude").Create(&User{latitude: _latitude, longitude: _longitude, altitude: _altitude})
+func AddGeoLocation(db *gorm.DB, _latitude float32, _longitude float32, _altitude float32) *gorm.DB {
+	result := db.Create(&User{Latitude: _latitude, Longitude: _longitude, Altitude: _altitude})
 	return result
 }
